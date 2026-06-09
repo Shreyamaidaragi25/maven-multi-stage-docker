@@ -48,13 +48,13 @@ docker rm running-maven-app
 
 ### ⚠️ Troubleshooting Common Errors
 #### Error: process "/bin/sh -c maven ..." did not complete successfully (Exit Code: 127)
-Cause: A syntax typo in the Dockerfile (e.g., using mave or maven instead of the short binary syntax).
+#### Cause: A syntax typo in the Dockerfile (e.g., using mave or maven instead of the short binary syntax).
 
   Fix: Ensure line 14 uses exactly mvn dependency:go-offline -B.
 
 
-Error: ports are not available: listen tcp 0.0.0.0:8080: bind: Only one usage of each socket address...
-Cause: Host port 8080 is already locked by another process or an uncleaned Docker container.
+#### Error: ports are not available: listen tcp 0.0.0.0:8080: bind: Only one usage of each socket address...
+#### Cause: Host port 8080 is already locked by another process or an uncleaned Docker container.
 
   Fix: Change the host-side mapping to an open port (e.g., -p 8081:8080 or -p 9090:8080), or clear out conflicting containers using docker rm -f <container_name>.
 
